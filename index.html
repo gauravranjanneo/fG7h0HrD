@@ -158,7 +158,7 @@
       background: rgba(108, 92, 231, 0.12);
     }
 
-    /* ===== MOBILE DROPDOWN MENU ===== */
+    /* ===== MOBILE DROPDOWN ===== */
     .mobile-dropdown {
       display: none;
       position: fixed;
@@ -439,6 +439,200 @@
       transform: scale(1);
     }
 
+    /* ===== MOCKUP SCREEN SCROLL ANIMATION ===== */
+    .mockup-section {
+      padding: 80px 0;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      overflow: hidden;
+    }
+
+    .mockup-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .mockup-phone {
+      width: 280px;
+      height: 560px;
+      background: rgba(11, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 40px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .mockup-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      overflow: hidden;
+      padding: 20px 16px;
+      position: relative;
+    }
+
+    .mockup-screen .status-bar {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .mockup-screen .mockup-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mockup-content .line {
+      height: 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      width: 100%;
+      animation: shimmer 2s infinite;
+    }
+
+    .mockup-content .line:nth-child(2) { width: 80%; }
+    .mockup-content .line:nth-child(3) { width: 60%; }
+    .mockup-content .line:nth-child(4) { width: 90%; }
+    .mockup-content .line:nth-child(5) { width: 70%; }
+    .mockup-content .line:nth-child(6) { width: 85%; }
+
+    .mockup-content .card-row {
+      display: flex;
+      gap: 10px;
+      margin: 8px 0;
+    }
+
+    .mockup-content .card-row .card {
+      height: 70px;
+      border-radius: 14px;
+      background: rgba(108, 92, 231, 0.15);
+      flex: 1;
+      animation: shimmer 2s infinite 0.5s;
+    }
+
+    .mockup-content .card-row .card:nth-child(2) {
+      background: rgba(0, 184, 148, 0.15);
+      animation-delay: 0.7s;
+    }
+
+    .mockup-content .card-row .card:nth-child(3) {
+      background: rgba(253, 121, 168, 0.15);
+      animation-delay: 0.9s;
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.4; }
+    }
+
+    .mockup-text {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .mockup-text h2 {
+      font-size: 38px;
+      margin-bottom: 16px;
+    }
+
+    .mockup-text p {
+      color: var(--gray);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .mockup-text .blue-line {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+
+    /* ===== GLASS CARDS WITH MOUSE FOLLOW ===== */
+    .glass-cards-section {
+      padding: 80px 0;
+      background: rgba(248, 249, 254, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    .glass-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      padding: 40px 30px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108, 92, 231, 0.08), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .glass-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-8px);
+    }
+
+    .glass-card .icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(108, 92, 231, 0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .glass-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .glass-card p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
     /* ===== ABOUT ===== */
     .about {
       padding: 100px 0;
@@ -536,52 +730,6 @@
     .code-panel .str { color: #fbbf24; }
     .code-panel .func { color: #34d399; }
     .code-panel .var { color: #f472b6; }
-
-    /* ===== SERVICES ===== */
-    .services {
-      padding: 100px 0;
-      background: rgba(248, 249, 254, 0.5);
-      backdrop-filter: blur(4px);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(12px);
-      padding: 40px 30px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-      transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .service-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(108, 92, 231, 0.08);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      color: var(--primary);
-      margin-bottom: 22px;
-      backdrop-filter: blur(4px);
-    }
-
-    .service-card h3 { font-size: 22px; margin-bottom: 12px; }
-    .service-card p { color: var(--gray); font-size: 15px; line-height: 1.6; }
 
     /* ===== CONTACT ===== */
     .contact {
@@ -708,7 +856,7 @@
       box-shadow: 0 16px 32px rgba(108, 92, 231, 0.25);
     }
 
-    /* ===== FOOTER — GLASS + LINES ===== */
+    /* ===== FOOTER ===== */
     footer {
       background: rgba(6, 7, 10, 0.92);
       backdrop-filter: blur(20px);
@@ -881,6 +1029,8 @@
       .contact-grid { flex-direction: column; }
       .avatar-ring { width: 260px; height: 260px; }
       .avatar-inner { font-size: 66px; }
+      .mockup-wrapper { flex-direction: column; text-align: center; }
+      .mockup-text .blue-line { margin: 20px auto 0; }
     }
 
     @media (max-width: 768px) {
@@ -893,7 +1043,6 @@
 
       .nav-links { display: none; }
       .menu-toggle { display: flex; }
-
       .mobile-dropdown { display: flex; }
 
       .hero h1 { font-size: 38px; }
@@ -902,6 +1051,8 @@
       .stats { gap: 28px; }
       .stat-item .num { font-size: 28px; }
       .contact-form { padding: 28px 22px; }
+      .mockup-phone { width: 220px; height: 440px; }
+      .mockup-text h2 { font-size: 28px; }
     }
 
     @media (max-width: 480px) {
@@ -910,6 +1061,7 @@
       .avatar-inner { font-size: 50px; }
       .btn { padding: 12px 24px; font-size: 14px; }
       .mobile-dropdown { max-width: 90%; }
+      .mockup-phone { width: 180px; height: 360px; }
     }
   </style>
 </head>
@@ -973,6 +1125,77 @@
   </div>
 </section>
 
+<!-- ===== MOCKUP SCREEN SCROLL ANIMATION ===== -->
+<section class="mockup-section">
+  <div class="container">
+    <div class="mockup-wrapper">
+      <div class="mockup-phone reveal-left">
+        <div class="mockup-screen">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span><i class="fas fa-wifi"></i> <i class="fas fa-battery-three-quarters"></i></span>
+          </div>
+          <div class="mockup-content">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="card-row">
+              <div class="card"></div>
+              <div class="card"></div>
+              <div class="card"></div>
+            </div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="card-row">
+              <div class="card" style="background:rgba(108,92,231,0.10);"></div>
+              <div class="card" style="background:rgba(0,184,148,0.10);"></div>
+            </div>
+            <div class="line" style="width:75%;"></div>
+            <div class="line" style="width:55%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-text reveal-right">
+        <h2>Modern <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Web Experiences</span></h2>
+        <p>Every pixel matters. I craft immersive digital experiences that captivate users and drive results. From sleek interfaces to powerful backend systems.</p>
+        <div class="blue-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLASS CARDS WITH MOUSE FOLLOW ===== -->
+<section class="glass-cards-section">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>My <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Expertise</span></h2>
+      <p>Specialized skills to bring your vision to life</p>
+    </div>
+    <div class="glass-cards-grid">
+      <div class="glass-card" data-mouse>
+        <div class="icon"><i class="fas fa-code"></i></div>
+        <h3>Frontend Development</h3>
+        <p>Pixel-perfect responsive interfaces with React, Vue, and modern CSS frameworks.</p>
+      </div>
+      <div class="glass-card" data-mouse>
+        <div class="icon"><i class="fas fa-server"></i></div>
+        <h3>Backend Engineering</h3>
+        <p>Scalable APIs, microservices, and database architecture with Node.js and Python.</p>
+      </div>
+      <div class="glass-card" data-mouse>
+        <div class="icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>UI/UX Design</h3>
+        <p>User-centered design with Figma, creating intuitive and beautiful interfaces.</p>
+      </div>
+      <div class="glass-card" data-mouse>
+        <div class="icon"><i class="fas fa-cloud"></i></div>
+        <h3>Cloud & DevOps</h3>
+        <p>AWS, Docker, and CI/CD pipelines for reliable and scalable deployments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== ABOUT ===== -->
 <section class="about" id="about">
   <div class="container">
@@ -1006,48 +1229,6 @@
         <div>&nbsp;&nbsp;<span class="var">experience</span>: <span class="str">"5+ years"</span></div>
         <div>};</div>
         <div><span class="comment">// always learning, always coding</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>My <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Services</span></h2>
-      <p>Comprehensive web development solutions tailored to your needs</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal-scale" style="transition-delay: 0.05s;">
-        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-        <h3>Web Development</h3>
-        <p>Custom websites using modern tech. Responsive, fast, and pixel-perfect across all devices.</p>
-      </div>
-      <div class="service-card reveal-scale" style="transition-delay: 0.10s;">
-        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-        <h3>UI/UX Design</h3>
-        <p>User-centered interfaces that are intuitive, engaging, and drive conversions.</p>
-      </div>
-      <div class="service-card reveal-scale" style="transition-delay: 0.15s;">
-        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-        <h3>Frontend Development</h3>
-        <p>Interactive UIs with modern frameworks like React, Vue, and vanilla JS.</p>
-      </div>
-      <div class="service-card reveal-scale" style="transition-delay: 0.20s;">
-        <div class="service-icon"><i class="fas fa-server"></i></div>
-        <h3>Backend Development</h3>
-        <p>Scalable APIs and server-side logic with Node.js, Express, and databases.</p>
-      </div>
-      <div class="service-card reveal-scale" style="transition-delay: 0.25s;">
-        <div class="service-icon"><i class="fas fa-tools"></i></div>
-        <h3>Maintenance & Support</h3>
-        <p>Ongoing updates, security patches, and technical support for peace of mind.</p>
-      </div>
-      <div class="service-card reveal-scale" style="transition-delay: 0.30s;">
-        <div class="service-icon"><i class="fas fa-rocket"></i></div>
-        <h3>SEO & Performance</h3>
-        <p>Optimized for speed and search engines to boost visibility and user engagement.</p>
       </div>
     </div>
   </div>
@@ -1113,7 +1294,7 @@
   </div>
 </section>
 
-<!-- ===== FOOTER — GLASS + LINES ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1167,7 +1348,6 @@
   toggle.addEventListener('click', toggleDropdown);
   overlay.addEventListener('click', toggleDropdown);
 
-  // close dropdown on link click
   document.querySelectorAll('.mobile-dropdown a').forEach(link => {
     link.addEventListener('click', () => {
       if (dropdown.classList.contains('open')) toggleDropdown();
@@ -1208,6 +1388,17 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
 
   revealElements.forEach(el => revealObserver.observe(el));
+
+  // ===== GLASS CARDS MOUSE FOLLOW =====
+  document.querySelectorAll('.glass-card[data-mouse]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', x + '%');
+      card.style.setProperty('--mouse-y', y + '%');
+    });
+  });
 
   // ===== CONTACT FORM =====
   document.getElementById('contactForm').addEventListener('submit', function(e) {
