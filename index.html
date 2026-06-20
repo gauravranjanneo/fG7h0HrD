@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gaurav Ranjan · Futuristic Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Poppins:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -317,8 +317,59 @@
             font-size: 18px;
             color: var(--text-secondary);
             max-width: 520px;
-            margin-bottom: 36px;
+            margin-bottom: 20px;
             line-height: 1.7;
+        }
+
+        /* ===== SKILL SLIDER ===== */
+        .skill-slider-section {
+            margin: 20px 0 30px;
+            width: 100%;
+            max-width: 520px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-slider-track {
+            display: flex;
+            gap: 12px;
+            animation: slideSkills 20s linear infinite;
+            width: max-content;
+        }
+
+        .skill-slider-track .skill-pill {
+            background: rgba(124, 58, 237, 0.10);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .skill-slider-track .skill-pill i {
+            color: var(--secondary);
+        }
+
+        .skill-slider-track .skill-pill:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+            transform: scale(1.05);
+        }
+
+        @keyframes slideSkills {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .btn-group {
@@ -373,7 +424,7 @@
         .stats {
             display: flex;
             gap: 48px;
-            margin-top: 48px;
+            margin-top: 32px;
             flex-wrap: wrap;
         }
 
@@ -396,63 +447,308 @@
             justify-content: center;
         }
 
-        /* ===== ANIMATED BORDER AVATAR ===== */
-        .avatar-ring {
-            width: 340px;
-            height: 340px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        /* ===== HERO ART / TERMINAL CARDS ===== */
+        .hero-art {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 40px 80px rgba(124, 58, 237, 0.2);
-            animation: float 6s ease-in-out infinite;
+            flex-direction: column;
+            gap: 16px;
             position: relative;
-            padding: 4px;
+            width: 100%;
+            max-width: 480px;
         }
 
-        .avatar-ring::before {
-            content: '';
+        .hero-art .float-shape {
             position: absolute;
-            inset: -4px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-            animation: rotateBorder 4s linear infinite;
-            z-index: -1;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 0;
         }
 
-        @keyframes rotateBorder {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .hero-art .cube {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: var(--primary);
+            top: -20px;
+            right: -20px;
+            animation: floatCube 7s ease-in-out infinite;
         }
 
-        .avatar-inner {
-            width: 92%;
-            height: 92%;
+        .hero-art .ring {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--secondary);
             border-radius: 50%;
-            background: var(--darker);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-            font-weight: 900;
-            color: var(--primary-light);
-            font-family: 'Poppins', sans-serif;
-            border: 1px solid var(--glass-border);
+            bottom: -30px;
+            left: -40px;
+            animation: floatRing 9s ease-in-out infinite;
         }
 
-        @keyframes float {
+        @keyframes floatCube {
             0%,
             100% {
-                transform: translateY(0px);
+                transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-16px);
+                transform: translateY(-20px) rotate(45deg);
             }
+        }
+
+        @keyframes floatRing {
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-15px) scale(1.05);
+            }
+        }
+
+        .hero-card {
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            padding: 20px 24px;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .hero-card:hover {
+            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.05);
+        }
+
+        /* Terminal Card */
+        .hero-card.terminal {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .terminal-bar {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .terminal-bar .dot-r,
+        .terminal-bar .dot-y,
+        .terminal-bar .dot-g {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .terminal-bar .dot-r {
+            background: #ff5f56;
+        }
+        .terminal-bar .dot-y {
+            background: #ffbd2e;
+        }
+        .terminal-bar .dot-g {
+            background: #27ca3f;
+        }
+
+        .terminal-bar .title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: 8px;
+            opacity: 0.7;
+        }
+
+        .terminal-body {
+            padding: 16px 20px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .terminal-body .t-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .terminal-body .t-prompt {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .terminal-body .t-cmd {
+            color: var(--text-primary);
+        }
+
+        .terminal-body .t-out {
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .terminal-body .t-ok {
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        .terminal-body .t-warn {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .terminal-body .t-key {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .terminal-body .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--secondary);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Stat Card */
+        .hero-card.stat .label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-card.stat .num {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin: 4px 0;
+        }
+
+        .hero-card.stat .delta {
+            color: #34d399;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero-card.stat .delta i {
+            margin-right: 4px;
+        }
+
+        .hero-card.stat .spark {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 4px;
+            margin-top: 12px;
+            width: 100%;
+            animation: sparkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkPulse {
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scaleX(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleX(1.02);
+            }
+        }
+
+        /* License Card */
+        .hero-card.license .lic-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .hero-card.license .lic-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(124, 58, 237, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+
+        .hero-card.license .lic-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .hero-card.license .lic-key {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        .hero-card.license .lic-status {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 700;
+            color: #34d399;
+            background: rgba(52, 211, 153, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .hero-card.license .lic-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            margin: 12px 0 8px;
+            overflow: hidden;
+        }
+
+        .hero-card.license .lic-bar div {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            width: 78%;
+            animation: progressPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes progressPulse {
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .hero-card.license .lic-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
         }
 
         /* ===== ANIMATIONS ===== */
@@ -523,48 +819,6 @@
             flex-wrap: wrap;
         }
 
-        /* ===== LINE EFFECT ABOVE MODERN WEB ===== */
-        .line-effect-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .line-effect-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -12px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            animation: linePulse 2s ease-in-out infinite;
-        }
-
-        .line-effect-wrapper::after {
-            content: '';
-            position: absolute;
-            top: -12px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), transparent);
-            border-radius: 4px;
-            opacity: 0.15;
-        }
-
-        @keyframes linePulse {
-            0%,
-            100% {
-                width: 60px;
-                opacity: 1;
-            }
-            50% {
-                width: 100px;
-                opacity: 0.6;
-            }
-        }
-
         .mockup-phone {
             width: 280px;
             height: 560px;
@@ -587,6 +841,15 @@
             animation: rotateBorder 6s linear infinite;
             z-index: -1;
             opacity: 0.3;
+        }
+
+        @keyframes rotateBorder {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .mockup-screen {
@@ -679,6 +942,47 @@
             max-width: 500px;
         }
 
+        .mockup-text .line-effect-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mockup-text .line-effect-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            animation: linePulse 2s ease-in-out infinite;
+        }
+
+        .mockup-text .line-effect-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            border-radius: 4px;
+            opacity: 0.15;
+        }
+
+        @keyframes linePulse {
+            0%,
+            100% {
+                width: 60px;
+                opacity: 1;
+            }
+            50% {
+                width: 100px;
+                opacity: 0.6;
+            }
+        }
+
         .mockup-text h2 {
             font-size: 38px;
             margin-bottom: 16px;
@@ -733,7 +1037,8 @@
             position: absolute;
             inset: 0;
             border-radius: var(--radius);
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.08), transparent 60%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124, 58, 237, 0.08),
+                    transparent 60%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -1367,6 +1672,9 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            .skill-slider-section {
+                max-width: 100%;
+            }
             .stats {
                 justify-content: center;
             }
@@ -1379,12 +1687,8 @@
             .contact-grid {
                 flex-direction: column;
             }
-            .avatar-ring {
-                width: 260px;
-                height: 260px;
-            }
-            .avatar-inner {
-                font-size: 66px;
+            .hero-art {
+                max-width: 100%;
             }
             .mockup-wrapper {
                 flex-direction: column;
@@ -1393,8 +1697,8 @@
             .mockup-text .purple-line {
                 margin: 20px auto 0;
             }
-            .line-effect-wrapper::before,
-            .line-effect-wrapper::after {
+            .mockup-text .line-effect-wrapper::before,
+            .mockup-text .line-effect-wrapper::after {
                 left: 50%;
                 transform: translateX(-50%);
             }
@@ -1443,18 +1747,17 @@
             .mockup-text h2 {
                 font-size: 28px;
             }
+            .hero-art .float-shape {
+                display: none;
+            }
+            .skill-slider-track {
+                animation-duration: 30s;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 30px;
-            }
-            .avatar-ring {
-                width: 200px;
-                height: 200px;
-            }
-            .avatar-inner {
-                font-size: 50px;
             }
             .btn {
                 padding: 12px 24px;
@@ -1466,6 +1769,19 @@
             .mockup-phone {
                 width: 180px;
                 height: 360px;
+            }
+            .hero-card {
+                padding: 14px 16px;
+            }
+            .terminal-body {
+                font-size: 11px;
+                padding: 12px 14px 16px;
+            }
+            .hero-card.stat .num {
+                font-size: 32px;
+            }
+            .hero-card.license .lic-name {
+                font-size: 14px;
             }
         }
     </style>
@@ -1516,7 +1832,31 @@
             <div class="hero-content reveal-left">
                 <div class="badge"><i class="fas fa-bolt"></i> Web Developer</div>
                 <h1>Hi, I'm <span class="gradient-animate">Gaurav Ranjan</span></h1>
-                <p>I create stunning, responsive websites and web applications with cutting-edge technologies. With expertise in frontend and backend development, I transform ideas into digital reality.</p>
+                <p>I create stunning, responsive websites and web applications with cutting-edge technologies.</p>
+
+                <!-- ===== SKILL SLIDER ===== -->
+                <div class="skill-slider-section">
+                    <div class="skill-slider-track">
+                        <span class="skill-pill"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="skill-pill"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-pill"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-pill"><i class="fab fa-php"></i> PHP</span>
+                        <span class="skill-pill"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="skill-pill"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-pill"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                        <!-- Duplicate for seamless loop -->
+                        <span class="skill-pill"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="skill-pill"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-pill"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-pill"><i class="fab fa-php"></i> PHP</span>
+                        <span class="skill-pill"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="skill-pill"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-pill"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                    </div>
+                </div>
+
                 <div class="btn-group">
                     <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
                     <a href="#about" class="btn btn-outline"><i class="fas fa-user"></i> Learn More</a>
@@ -1528,8 +1868,46 @@
                 </div>
             </div>
             <div class="hero-visual reveal-right">
-                <div class="avatar-ring">
-                    <div class="avatar-inner">GR</div>
+                <div class="hero-art">
+                    <div class="float-shape cube"></div>
+                    <div class="float-shape ring"></div>
+
+                    <div class="hero-card terminal">
+                        <div class="terminal-bar">
+                            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+                            <span class="title">~/portfolio · deploy.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">gaurav deploy --stack full --optimize</span></div>
+                            <div class="t-line"><span class="t-out">→ building frontend with React + Vite ...</span></div>
+                            <div class="t-line"><span class="t-ok">✓</span> <span class="t-out">backend API ready (Node.js + Express)</span></div>
+                            <div class="t-line"><span class="t-out">→ deploying to AWS with Docker ...</span></div>
+                            <div class="t-line"><span class="t-ok">✓</span> <span class="t-out">CI/CD pipeline · </span><span class="t-key">green</span></div>
+                            <div class="t-line"><span class="t-warn">!</span> <span class="t-out">ssl cert · </span><span class="t-key">*.gaurav.dev</span></div>
+                            <div class="t-line"><span class="t-ok">✓</span> <span class="t-out">site live · </span><span class="t-key">2.4s TTFB</span></div>
+                            <div class="t-line"><span class="t-prompt">$</span> <span class="cursor"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="hero-card stat">
+                        <div class="label">Sites Hosted</div>
+                        <div class="num">₹2896</div>
+                        <div class="delta"><i class="fa-solid fa-arrow-up"></i> +18.2% this month</div>
+                        <div class="spark"></div>
+                    </div>
+
+                    <div class="hero-card license">
+                        <div class="lic-row">
+                            <div class="lic-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div>
+                                <div class="lic-name">High Speed VPS</div>
+                                <div class="lic-key">KVM · NVMe · Full Root</div>
+                            </div>
+                            <div class="lic-status">ACTIVE</div>
+                        </div>
+                        <div class="lic-bar"><div style="width: 92%"></div></div>
+                        <div class="lic-meta"><span>Ultra Speed</span><span>92%</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1661,27 +2039,32 @@
                         <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
                         <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
                         <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-                        <span class="skill-tag"><i class="fab fa-react"></i> Python</span>
-                        <span class="skill-tag"><i class="fab fa-vuejs"></i> PHP</span>
+                        <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="skill-tag"><i class="fab fa-vuejs"></i> Vue.js</span>
                         <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
                         <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
                         <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
                     </div>
                 </div>
                 <div class="code-panel reveal-right">
-                    <div><span class="comment">// about gaurav</span></div>
-                    <div><span class="key">const</span> developer = {</div>
-                    <div>&nbsp;&nbsp;<span class="var">name</span>: <span class="str">"Gaurav Ranjan"</span>,</div>
-                    <div>&nbsp;&nbsp;<span class="var">role</span>: <span class="str">"Web Developer"</span>,</div>
-                    <div>&nbsp;&nbsp;<span class="var">location</span>: <span class="str">"Mumbai, India"</span>,</div>
-                    <div>&nbsp;&nbsp;<span class="var">skills</span>: [<span class="str">"JS"</span>, <span class="str">"Python"</span>, <span class="str">"Node"</span>, <span class="str">"MySQL"</span>],</div>
-                    <div>&nbsp;&nbsp;<span class="var">experience</span>: <span class="str">"5+ years"</span></div>
+                    <div><span class="comment">// KVM VPS · NVMe · Full Root</span></div>
+                    <div><span class="key">const</span> hosting = {</div>
+                    <div>&nbsp;&nbsp;<span class="var">provider</span>: <span class="str">"KatHosting"</span>,</div>
+                    <div>&nbsp;&nbsp;<span class="var">type</span>: <span class="str">"KVM VPS"</span>,</div>
+                    <div>&nbsp;&nbsp;<span class="var">storage</span>: <span class="str">"NVMe SSD"</span>,</div>
+                    <div>&nbsp;&nbsp;<span class="var">price</span>: <span class="str">"₹450/month"</span>,</div>
+                    <div>&nbsp;&nbsp;<span class="var">features</span>: [<span class="str">"Full Root"</span>, <span class="str">"DDoS"</span>, <span class="str">"cPanel"</span>],</div>
+                    <div>&nbsp;&nbsp;<span class="var">uptime</span>: <span class="str">"99.99% SLA"</span></div>
                     <div>};</div>
-                    <div><span class="comment">// always learning, always coding</span></div>
+                    <div><span class="comment">// deploy with confidence</span></div>
                 </div>
             </div>
         </div>
     </section>
+
+   
 
     <!-- ===== FAQ SECTION ===== -->
     <section class="faq-section glass-section" id="faq">
