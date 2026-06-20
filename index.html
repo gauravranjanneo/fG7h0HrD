@@ -508,21 +508,6 @@
                 radial-gradient(ellipse at 70% 80%, rgba(167, 139, 250, 0.03), transparent 50%);
         }
 
-        .glass-card-deep {
-            background: rgba(10, 10, 15, 0.5);
-            backdrop-filter: blur(20px) saturate(200%);
-            -webkit-backdrop-filter: blur(20px) saturate(200%);
-            border-radius: var(--radius);
-            border: 1px solid rgba(124, 58, 237, 0.12);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-            transition: var(--transition);
-        }
-
-        .glass-card-deep:hover {
-            border-color: rgba(124, 58, 237, 0.3);
-            box-shadow: 0 30px 80px rgba(124, 58, 237, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
         /* ===== MOCKUP SECTION ===== */
         .mockup-section {
             padding: 80px 0;
@@ -536,6 +521,48 @@
             justify-content: center;
             gap: 60px;
             flex-wrap: wrap;
+        }
+
+        /* ===== LINE EFFECT ABOVE MODERN WEB ===== */
+        .line-effect-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .line-effect-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            animation: linePulse 2s ease-in-out infinite;
+        }
+
+        .line-effect-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            border-radius: 4px;
+            opacity: 0.15;
+        }
+
+        @keyframes linePulse {
+            0%,
+            100% {
+                width: 60px;
+                opacity: 1;
+            }
+            50% {
+                width: 100px;
+                opacity: 0.6;
+            }
         }
 
         .mockup-phone {
@@ -923,6 +950,78 @@
             color: #7c3aed;
         }
 
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(10, 10, 15, 0.4);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 28px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--secondary);
+        }
+
+        .faq-question i {
+            transition: transform 0.4s ease;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s ease;
+            padding: 0 28px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 28px 24px;
+        }
+
         /* ===== CONTACT ===== */
         .contact {
             padding: 100px 0;
@@ -1294,6 +1393,11 @@
             .mockup-text .purple-line {
                 margin: 20px auto 0;
             }
+            .line-effect-wrapper::before,
+            .line-effect-wrapper::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1389,6 +1493,7 @@
                 <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
                 <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
 
@@ -1401,6 +1506,7 @@
         <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
         <a href="#about"><i class="fas fa-user"></i> About</a>
         <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+        <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
         <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     </div>
 
@@ -1460,7 +1566,9 @@
                     </div>
                 </div>
                 <div class="mockup-text reveal-right">
-                    <h2>Modern <span class="gradient-animate">Web Experiences</span></h2>
+                    <div class="line-effect-wrapper">
+                        <h2>Modern <span class="gradient-animate">Web Experiences</span></h2>
+                    </div>
                     <p>Every pixel matters. I craft immersive digital experiences that captivate users and drive results. From sleek interfaces to powerful backend systems.</p>
                     <div class="purple-line"></div>
                 </div>
@@ -1487,14 +1595,24 @@
                     <p>Scalable APIs, microservices, and database architecture with Node.js and Python.</p>
                 </div>
                 <div class="card-3d reveal-scale" data-tilt style="transition-delay:0.15s">
+                    <div class="icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & DevOps</h3>
+                    <p>AWS, Docker, and CI/CD pipelines for reliable and scalable deployments.</p>
+                </div>
+                <div class="card-3d reveal-scale" data-tilt style="transition-delay:0.20s">
                     <div class="icon"><i class="fas fa-paint-brush"></i></div>
                     <h3>UI/UX Design</h3>
                     <p>User-centered design with Figma, creating intuitive and beautiful interfaces.</p>
                 </div>
-                <div class="card-3d reveal-scale" data-tilt style="transition-delay:0.20s">
-                    <div class="icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>AWS, Docker, and CI/CD pipelines for reliable and scalable deployments.</p>
+                <div class="card-3d reveal-scale" data-tilt style="transition-delay:0.25s">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h3>Database Management</h3>
+                    <p>Expertise in MySQL, MongoDB, and PostgreSQL with optimization and scaling.</p>
+                </div>
+                <div class="card-3d reveal-scale" data-tilt style="transition-delay:0.30s">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Server Security</h3>
+                    <p>Advanced server security, authentication, authorization, and vulnerability protection.</p>
                 </div>
             </div>
         </div>
@@ -1560,6 +1678,63 @@
                     <div>&nbsp;&nbsp;<span class="var">experience</span>: <span class="str">"5+ years"</span></div>
                     <div>};</div>
                     <div><span class="comment">// always learning, always coding</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section glass-section" id="faq">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Frequently Asked <span class="gradient-animate">Questions</span></h2>
+                <p>Answers to common questions about my work and process</p>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fas fa-chevron-right" style="color:var(--secondary);margin-right:12px;"></i> What technologies do you specialize in?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        I specialize in modern web technologies including HTML5, CSS3, JavaScript (ES6+), React, Vue.js, Node.js, Express, Python, MySQL, MongoDB, and cloud platforms like AWS and Docker.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fas fa-chevron-right" style="color:var(--secondary);margin-right:12px;"></i> How long does it take to build a website?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Timeline depends on project complexity. A simple portfolio site takes 1-2 weeks, while complex web applications can take 4-8 weeks. I provide detailed timelines after understanding your requirements.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fas fa-chevron-right" style="color:var(--secondary);margin-right:12px;"></i> Do you provide maintenance and support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! I offer ongoing maintenance, security updates, performance optimization, and technical support packages to keep your website running smoothly and securely.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fas fa-chevron-right" style="color:var(--secondary);margin-right:12px;"></i> What is your development process?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        My process includes: Discovery & Planning → Design → Development → Testing → Deployment → Maintenance. I work closely with clients at every stage to ensure the final product exceeds expectations.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fas fa-chevron-right" style="color:var(--secondary);margin-right:12px;"></i> Do you work with international clients?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely! I work with clients worldwide. Communication is done via email, video calls, and project management tools to ensure smooth collaboration regardless of time zones.
+                    </div>
                 </div>
             </div>
         </div>
@@ -1647,6 +1822,7 @@
                     <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
                     <a href="#about"><i class="fas fa-chevron-right"></i> About</a>
                     <a href="#services"><i class="fas fa-chevron-right"></i> Services</a>
+                    <a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a>
                     <a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
                 </div>
                 <div class="footer-col">
@@ -1709,7 +1885,6 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
 
-                // Mouse interaction
                 const dx = mouseX - this.x;
                 const dy = mouseY - this.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
@@ -1787,20 +1962,36 @@
                 const centerY = rect.height / 2;
                 const rotateX = (y - centerY) / 20;
                 const rotateY = (centerX - x) / 20;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                card.style.transform =
+                `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
             });
 
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
             });
 
-            // Mouse position for glow
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = ((e.clientX - rect.left) / rect.width) * 100;
                 const y = ((e.clientY - rect.top) / rect.height) * 100;
                 card.style.setProperty('--mouse-x', x + '%');
                 card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+
+        // ===== FAQ ACCORDION =====
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
         });
 
@@ -1812,7 +2003,8 @@
         function toggleDropdown() {
             dropdown.classList.toggle('open');
             overlay.classList.toggle('open');
-            toggle.innerHTML = dropdown.classList.contains('open') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            toggle.innerHTML = dropdown.classList.contains('open') ? '<i class="fas fa-times"></i>' :
+                '<i class="fas fa-bars"></i>';
             document.body.style.overflow = dropdown.classList.contains('open') ? 'hidden' : 'auto';
         }
 
