@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaurav Ranjan · Futuristic Pro</title>
+  <title>Gaurav Ranjan · Glassmorphism Pro</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -20,12 +20,12 @@
       --accent: #fd79a8;
       --dark: #0b0c10;
       --darker: #06070a;
-      --light: #f8f9fe;
+      --light: #f0f2f8;
       --gray: #8b8fa7;
-      --gray-light: #e9ecf3;
+      --gray-light: #e2e6ee;
       --white: #ffffff;
-      --shadow: 0 12px 30px rgba(108, 92, 231, 0.15);
-      --shadow-lg: 0 30px 60px rgba(108, 92, 231, 0.20);
+      --shadow: 0 12px 40px rgba(108, 92, 231, 0.12);
+      --shadow-lg: 0 30px 70px rgba(108, 92, 231, 0.18);
       --radius: 28px;
       --radius-sm: 16px;
       --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -34,7 +34,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--light);
+      background: #e8ecf5;
       color: var(--dark);
       line-height: 1.6;
       overflow-x: hidden;
@@ -60,12 +60,12 @@
       transform: translateX(-50%);
       width: calc(100% - 40px);
       max-width: 1240px;
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(18px) saturate(200%);
-      -webkit-backdrop-filter: blur(18px) saturate(200%);
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
       border-radius: 80px;
       padding: 8px 20px 8px 32px;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
       z-index: 9999;
       border: 1px solid rgba(255, 255, 255, 0.5);
       transition: var(--transition);
@@ -73,8 +73,8 @@
 
     header.scrolled {
       top: 12px;
-      background: rgba(255, 255, 255, 0.75);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
       border-color: rgba(108, 92, 231, 0.10);
     }
 
@@ -168,8 +168,8 @@
       width: calc(100% - 40px);
       max-width: 400px;
       background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(24px) saturate(200%);
-      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-radius: 28px;
       padding: 20px 10px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
@@ -213,7 +213,6 @@
       text-align: center;
     }
 
-    /* overlay */
     .overlay {
       display: none;
       position: fixed;
@@ -228,7 +227,7 @@
     /* ===== HERO ===== */
     .hero {
       padding: 180px 0 100px;
-      background: linear-gradient(145deg, #f0f3ff 0%, #ffffff 100%);
+      background: linear-gradient(145deg, #e8ecf5 0%, #f5f7fd 100%);
       position: relative;
       overflow: hidden;
     }
@@ -240,7 +239,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(108, 92, 231, 0.05), transparent 70%);
+      background: radial-gradient(circle, rgba(108, 92, 231, 0.06), transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -442,7 +441,7 @@
     /* ===== MOCKUP SCREEN SCROLL ANIMATION ===== */
     .mockup-section {
       padding: 80px 0;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(4px);
       overflow: hidden;
     }
@@ -564,7 +563,7 @@
     /* ===== GLASS CARDS WITH MOUSE FOLLOW ===== */
     .glass-cards-section {
       padding: 80px 0;
-      background: rgba(248, 249, 254, 0.3);
+      background: rgba(248, 249, 254, 0.2);
       backdrop-filter: blur(4px);
     }
 
@@ -592,7 +591,7 @@
       position: absolute;
       inset: 0;
       border-radius: var(--radius);
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108, 92, 231, 0.08), transparent 60%);
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108, 92, 231, 0.10), transparent 60%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -633,10 +632,116 @@
       line-height: 1.6;
     }
 
+    /* ===== WEBFLOW STYLE GLASS CARD ===== */
+    .webflow-card-section {
+      padding: 60px 0 80px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    .webflow-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(24px) saturate(200%);
+      border-radius: var(--radius);
+      padding: 50px 45px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .webflow-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(108, 92, 231, 0.05), transparent 60%);
+      pointer-events: none;
+    }
+
+    .webflow-card .badge-sm {
+      display: inline-block;
+      background: rgba(108, 92, 231, 0.10);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(108, 92, 231, 0.10);
+      margin-bottom: 16px;
+    }
+
+    .webflow-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .webflow-card p {
+      color: var(--gray);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+
+    .webflow-card .btn-group {
+      justify-content: center;
+    }
+
+    .webflow-card .btn-clone {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(108, 92, 231, 0.20);
+    }
+
+    .webflow-card .btn-clone:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(108, 92, 231, 0.30);
+    }
+
+    .webflow-card .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .webflow-card .stats-row .num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dark);
+    }
+
+    .webflow-card .stats-row .label {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
     /* ===== ABOUT ===== */
     .about {
       padding: 100px 0;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(4px);
     }
 
@@ -734,7 +839,7 @@
     /* ===== CONTACT ===== */
     .contact {
       padding: 100px 0;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(4px);
     }
 
@@ -802,7 +907,7 @@
 
     .contact-form {
       flex: 1.2;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(16px);
       padding: 44px 40px;
       border-radius: var(--radius);
@@ -862,7 +967,7 @@
       backdrop-filter: blur(20px);
       color: #b0b8d1;
       padding: 60px 0 30px;
-      border-top: 2px solid rgba(108, 92, 231, 0.20);
+      border-top: 2px solid rgba(108, 92, 231, 0.15);
       position: relative;
       overflow: hidden;
     }
@@ -1031,6 +1136,7 @@
       .avatar-inner { font-size: 66px; }
       .mockup-wrapper { flex-direction: column; text-align: center; }
       .mockup-text .blue-line { margin: 20px auto 0; }
+      .webflow-card { padding: 35px 25px; }
     }
 
     @media (max-width: 768px) {
@@ -1053,6 +1159,8 @@
       .contact-form { padding: 28px 22px; }
       .mockup-phone { width: 220px; height: 440px; }
       .mockup-text h2 { font-size: 28px; }
+      .webflow-card h2 { font-size: 26px; }
+      .webflow-card .stats-row { gap: 24px; flex-wrap: wrap; }
     }
 
     @media (max-width: 480px) {
@@ -1062,6 +1170,7 @@
       .btn { padding: 12px 24px; font-size: 14px; }
       .mobile-dropdown { max-width: 90%; }
       .mockup-phone { width: 180px; height: 360px; }
+      .webflow-card { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -1165,7 +1274,7 @@
 </section>
 
 <!-- ===== GLASS CARDS WITH MOUSE FOLLOW ===== -->
-<section class="glass-cards-section">
+<section class="glass-cards-section" id="services">
   <div class="container">
     <div class="section-title reveal">
       <h2>My <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Expertise</span></h2>
@@ -1191,6 +1300,25 @@
         <div class="icon"><i class="fas fa-cloud"></i></div>
         <h3>Cloud & DevOps</h3>
         <p>AWS, Docker, and CI/CD pipelines for reliable and scalable deployments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEBFLOW STYLE GLASS CARD ===== -->
+<section class="webflow-card-section">
+  <div class="container">
+    <div class="webflow-card reveal-scale">
+      <div class="badge-sm"><i class="fas fa-code"></i> Made in Webflow</div>
+      <h2>Glassomorphism <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Tutorial</span></h2>
+      <p>Giving Webflow developers a competitive edge in the industry through interactive tutorials</p>
+      <div class="btn-group">
+        <a href="#" class="btn-clone"><i class="fas fa-clone"></i> Clone in Webflow 5.5k</a>
+      </div>
+      <div class="stats-row">
+        <div><div class="num">1.1k</div><div class="label">Views</div></div>
+        <div><div class="num">5.5k</div><div class="label">Clones</div></div>
+        <div><div class="num">4.8</div><div class="label">Rating</div></div>
       </div>
     </div>
   </div>
@@ -1304,6 +1432,12 @@
           <span>Gaurav</span>
         </div>
         <p>Professional Web Developer creating innovative web solutions with modern technologies.</p>
+        <div style="display:flex;gap:12px;margin-top:16px;">
+          <a href="#" style="color:#8892b0;font-size:20px;transition:var(--transition);"><i class="fab fa-youtube"></i></a>
+          <a href="#" style="color:#8892b0;font-size:20px;transition:var(--transition);"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color:#8892b0;font-size:20px;transition:var(--transition);"><i class="fab fa-dribbble"></i></a>
+          <a href="#" style="color:#8892b0;font-size:20px;transition:var(--transition);"><i class="fab fa-patreon"></i></a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
@@ -1324,10 +1458,21 @@
         <a><i class="fas fa-map-marker-alt"></i> Mumbai, India</a>
         <a href="tel:+918564884805"><i class="fas fa-phone"></i> +91 85648 84805</a>
         <a href="mailto:ranjangaurav825@gmail.com"><i class="fas fa-envelope"></i> ranjangaurav825@gmail.com</a>
+        <div style="margin-top:12px;padding:10px 16px;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.04);font-family:monospace;font-size:13px;color:#5a647e;">
+          4323 7645 2828 0713
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Gaurav Ranjan · Designed with <i class="fas fa-heart"></i> by Gaurav Ranjan</p>
+      <p style="margin-top:8px;font-size:12px;color:#3d455a;">
+        By clicking "Accept all", you agree to the storing of cookies on your device for functional, analytics, and advertising purposes.
+        <span style="display:inline-block;margin-top:6px;gap:12px;">
+          <a href="#" style="color:#5a647e;text-decoration:none;margin-right:12px;">Manage Preferences</a>
+          <a href="#" style="color:#5a647e;text-decoration:none;margin-right:12px;">Reject all</a>
+          <a href="#" style="color:var(--primary);text-decoration:none;font-weight:600;">Accept all</a>
+        </span>
+      </p>
     </div>
   </div>
 </footer>
